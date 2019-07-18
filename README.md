@@ -5,4 +5,4 @@
 	2. Don't say someone elses question is dumb
 	3. Don't be a doos, be lekker
 
-<img src="Coding.png" width="150" height="150"/>
+<img src="Images/Coding.png" width="150" height="150"/>
