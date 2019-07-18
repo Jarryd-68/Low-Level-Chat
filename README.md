@@ -5,4 +5,4 @@
 	2. Don't say someone elses question is dumb
 	3. Don't be a doos, be lekker
 
-![](Images/Coding.png =150x150)
+<img src="Coding.png" width="150" height="150"/>
