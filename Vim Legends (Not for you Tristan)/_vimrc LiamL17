@@ -1,0 +1,41 @@
+" Vundle Setup
+	set nocompatible
+	filetype off
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin()
+	Plugin 'VundleVim/Vundle.vim'
+	
+" Plugins
+	Plugin 'scrooloose/nerdtree'
+	Plugin 'jistr/vim-nerdtree-tabs'
+	Plugin 'scrooloose/syntastic'
+
+
+" Basics
+	syntax on
+	set incsearch
+	set hlsearch
+	set relativenumber
+	set noeb vb t_vb=
+	set ruler
+	set showmatch
+	set foldenable
+	set showcmd
+
+
+" Plugin specific setttings
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatusLineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_c_checkers=['gcc']
+
+call vundle#end()
+filetype plugin indent on
+
