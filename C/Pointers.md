@@ -1,7 +1,7 @@
 Pointers
 ========
 
-Apparently the hardest part of C but that is just a lie told by the government. This is a simpification as different addressing modes exist but that isn't important to understand this all.
+Apparently the hardest part of C but that is just a lie told by the government. This is a simpification as different addressing modes exist but that isn't important to understand this all and also relocation.
 
 ## An introduction to how stuff actually works
 
