@@ -1,5 +1,5 @@
 int main(){
 
-	printf("Hellow, World!");
+	printf("Hellow, World!"); /* <-- Retarded */
 	return 1;
 }
