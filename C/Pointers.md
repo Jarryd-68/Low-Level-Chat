@@ -23,4 +23,10 @@ Depending on the architetcure, what CPU you are using, they might use addresses 
 
 ## Now what are ~~🅱️ointers~~ Pointers
 
-{TODO}
+Now that we understand what a variable really is (address and value-at-that-address pair) the idea of a pointer is simple.
+
+Take our variable `x` with a value of `69`. Now what that really is is some address, say now `25`, with a value stored at it being `69`.
+
+Now we make another variable and call it `xAddr`, which is just an address and value pair, so let's say we have the address be `77`. Now the value we set is arbitrary but in this case we will interpret the value we assign here as yet another address. By interpret I mean we will pass it to the instructions that the CPU has that interpret such values as addresses.
+
+So we then set the value at the address `77` (which is our variable `xAddr`) to the value (or address with respect to the way it will be used/interpreted) `25`.
