@@ -22,5 +22,23 @@ and maps to a different physical address. What this allows you to do is have two
 
 I took this diagram from this site called osdev.org which makes it easy to understand.
 
+![https://wiki.osdev.org/images/thumb/7/77/Paging_Structure.gif/467px-Paging_Structure.gif](https://wiki.osdev.org/images/thumb/7/77/Paging_Structure.gif/467px-Paging_Structure.gif)
 
-Basically there is a register that the Linux kernel changes when it switches processes and this changes the whole base mapping, resulting in a sometimes dfferent mapping (as mentioned above you can make the virtual address `0` in **process a** map to the same physical address as the virtual address `0` in **process b**.
+Basically there is a register (the one called $cr3) that the Linux kernel changes when it switches processes and this changes the whole base mapping, resulting in a sometimes dfferent mapping (as mentioned above you can make the virtual address `0` in **process a** map to the same physical address as the virtual address `0` in **process b**.
+
+The reason the above is important to understand is just so you know that the addresses we are using in our programs are not the physical ones but only the virtual ones.
+
+## What is memory management?
+
+There are several meanings to it like managing the mappings of memory mentioned above but what this refers to in the context of the heap, `malloc` and `free` is the management of a region of memory called the heap.
+
+Basically the heap is a data structure beginning at a certain address in memory that holds the address of allocated chunks of memory and their length of allocation, meaning from address `5` for 2 bytes (`5` to `6` (one byte) and `6` to `7` (another byte)). Allocating this chunk of memory is done by the function `malloc` which simply maniuplates this data structure that keeps track of allocated regions and remaining memory that can be used to allocate chunks from. Because it manages it all for us it decides what address the chunk to be allocated will be (not that we would care much for what we are doing here) but we definately get our number of bytes (size of our region) allocated to us, starting from that point and growing upwards.
+
+````c
+void* addy = malloc(4);
+*((int*)addy) = 69;
+````
+
+The above code gets a, on x86_32, 32-bit number (the size of an address in 32-Bit protected mode) returned from `malloc` and assigned to the variable `addy`. `void*` is used instead of say now using a `int` because this makes our code protable, meaning it can be recompiled for x86_64 and it will be the size of `long`. Else, we have to write more code.
+
+{TODO}
