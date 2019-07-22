@@ -42,3 +42,5 @@ void* addy = malloc(4);
 The above code gets a, on x86_32, 32-bit number (the size of an address in 32-Bit protected mode) returned from `malloc` and assigned to the variable `addy`. `void*` is used instead of say now using a `int` because this makes our code protable, meaning it can be recompiled for x86_64 and it will be the size of `long`. Else, we have to write more code.
 
 The `(int*)` type cast means treat this address as a pointer to an integer. All this means is that when we write to this address we will write 4 bytes, offset from the address (value of `addy`). It means the number on the right hand side will be widened to 32-bits, which makes sense as we then write 32-bits (4 bytes).
+
+The `*` furthest to the left means store the value on the right hand side at the address pointed to by the value of `addy`. This is known as _"dereferencing a pointer"_ (in this case that pointer being `addy`).
