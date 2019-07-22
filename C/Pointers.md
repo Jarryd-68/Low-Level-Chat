@@ -30,3 +30,20 @@ Take our variable `x` with a value of `69`. Now what that really is is some addr
 Now we make another variable and call it `xAddr`, which is just an address and value pair, so let's say we have the address be `77`. Now the value we set is arbitrary but in this case we will interpret the value we assign here as yet another address. By interpret I mean we will pass it to the instructions that the CPU has that interpret such values as addresses.
 
 So we then set the value at the address `77` (which is our variable `xAddr`) to the value (or address with respect to the way it will be used/interpreted) `25`.
+
+### The use of pointers
+
+There are many ways to access the value at an address (the value at a variable in C-terms). The direct way is telling the CPU to fetch the value at address `69` and then we get the value out, say now `0`.
+
+If we have a pointer then we have 1 level of indirection. Meaning we ask the CPU to fetch the value at address `73` which turns out to be the value `69`, we then tell the CPU to get the value at address `69`, which would be `0`.
+
+An example of this is the below code (to be explained later):
+
+I think it can be shortened.
+
+````assembly
+movq $69, %rax
+movb $0, (%rax)
+````
+
+Moves 69 into %rax and then 0 into the memory at the address that is the value %rax holds.
